@@ -36,7 +36,7 @@ M.mode = function()
 end
 
 M.filename = function()
-  local file = vim.fn.expand("%:t")
+  local file = vim.fn.expand("%:.")
 
   if file == "" then
     file = "[no name]"

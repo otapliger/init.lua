@@ -23,9 +23,9 @@ return {
           with_expanders = nil,
         },
         icon = {
-          folder_open = "󰝰",
-          folder_closed = "󰉋",
-          folder_empty = "󰉖",
+          folder_open = "",
+          folder_closed = "",
+          folder_empty = "",
         },
       },
       window = {

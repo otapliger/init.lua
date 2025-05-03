@@ -2,6 +2,7 @@
 vim.g.netrw_banner = 0
 
 -- Setup remaps and options before loading plugins
+vim.opt.signcolumn = "yes"
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2

@@ -1,7 +1,6 @@
 return {
   "folke/noice.nvim",
   dependencies = {
-    "hrsh7th/nvim-cmp",
     "MunifTanjim/nui.nvim",
   },
   config = function()
@@ -10,7 +9,6 @@ return {
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
           ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true,
         },
       },
       presets = {

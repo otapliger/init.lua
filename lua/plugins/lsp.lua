@@ -1,7 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
+    "saghen/blink.cmp",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -36,7 +36,7 @@ return {
               vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
               vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
             end,
-            capabilities = require("cmp_nvim_lsp").default_capabilities(),
+            capabilities = require('blink.cmp').get_lsp_capabilities(),
           })
         end,
       },

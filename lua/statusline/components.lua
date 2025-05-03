@@ -42,7 +42,7 @@ M.filename = function()
     file = "[no name]"
   end
 
-  if string.match(file, "NvimTree") then
+  if string.match(file, "neo.tree filesystem") then
     file = ""
   end
 

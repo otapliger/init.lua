@@ -87,11 +87,11 @@ M.changes = function()
   return "%#GitSignsChange# ~" .. changed .. " %#GitSignsAdd# +" .. added .. " %#GitSignsDelete# -" .. removed .. " "
 end
 
-M.warnings = function()
-  local warning_count = count(vim.diagnostic.severity.WARN)
+M.infos = function()
+  local info_count = count(vim.diagnostic.severity.INFO)
 
-  if warning_count > 0 then
-    return warning_count
+  if info_count > 0 then
+    return "%#DiagnosticSignInfo# " .. info_count
   end
 
   return ""
@@ -101,17 +101,17 @@ M.errors = function()
   local error_count = count(vim.diagnostic.severity.ERROR)
 
   if error_count > 0 then
-    return error_count
+    return "%#DiagnosticSignError# " .. error_count
   end
 
   return ""
 end
 
-M.infos = function()
-  local info_count = count(vim.diagnostic.severity.INFO)
+M.warnings = function()
+  local warning_count = count(vim.diagnostic.severity.WARN)
 
-  if info_count > 0 then
-    return info_count
+  if warning_count > 0 then
+    return "%#DiagnosticSignWarn# " .. warning_count .. " "
   end
 
   return ""

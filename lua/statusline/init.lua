@@ -18,9 +18,9 @@ function StatusLine()
     -- Separator
     "%=",
 
+    get_component("StatusInfos", components.infos()),
     get_component("StatusErrors", components.errors()),
     get_component("StatusWarnings", components.warnings()),
-    get_component("StatusInfos", components.infos()),
   })
 end
 

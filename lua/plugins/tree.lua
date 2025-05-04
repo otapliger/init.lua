@@ -23,9 +23,9 @@ return {
           with_expanders = nil,
         },
         icon = {
-          folder_open = "",
-          folder_closed = "",
-          folder_empty = "",
+          folder_open = "⠶",
+          folder_closed = "⠶",
+          folder_empty = "⠶",
         },
       },
       window = {
@@ -48,6 +48,6 @@ return {
         use_libuv_file_watcher = true,
       },
     })
-    vim.keymap.set("n", "<C-Tab>", "<Cmd>Neotree toggle<CR>")
+    vim.keymap.set("n", "<Leader><Tab>", "<Cmd>Neotree toggle<CR>")
   end,
 }

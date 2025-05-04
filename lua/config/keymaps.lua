@@ -7,8 +7,9 @@ vim.keymap.set("n", "<leader><space>", function()
   vim.cmd("nohlsearch")
 end, {})
 
--- Force don't use arrows
+-- Disable
 -- vim.keymap.set({ "n", "v", "i" }, "<Up>", "<Nop>", {})
 -- vim.keymap.set({ "n", "v", "i" }, "<Down>", "<Nop>", {})
 -- vim.keymap.set({ "n", "v", "i" }, "<Left>", "<Nop>", {})
 -- vim.keymap.set({ "n", "v", "i" }, "<Right>", "<Nop>", {})
+vim.keymap.set({ "n", "v", "i" }, "<C-Tab>", "<Nop>", {})

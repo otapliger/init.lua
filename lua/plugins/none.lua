@@ -20,7 +20,7 @@ return {
             buffer = bufnr,
             callback = function()
               vim.lsp.buf.format({
-                async = false
+                async = false,
               })
             end,
           })

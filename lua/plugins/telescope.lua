@@ -16,7 +16,7 @@ return {
       local fused = layout_strategies.vertical(picker, max_columns, max_lines, layout_config)
       fused.prompt.title = ""
       fused.results.title = ""
-      
+
       if fused.preview then
         fused.preview.title = ""
         fused.preview.height = fused.preview.height + 1
@@ -25,7 +25,7 @@ return {
       else
         fused.results.borderchars = { "─", "│", "─", "│", "┌", "┐", "┤", "├" }
       end
-      
+
       fused.results.height = fused.results.height + 1
       fused.prompt.borderchars = { "─", "│", "─", "│", "├", "┤", "┘", "└" }
       return fused
@@ -63,15 +63,15 @@ return {
     -- Find buffer
     vim.keymap.set("n", "<C-b>", function()
       builtin.buffers({
-        ignore_current_buffer=true,
-        sort_mru=true,
+        ignore_current_buffer = true,
+        sort_mru = true,
       })
     end, {})
-    
+
     -- Find in-buffer
     vim.keymap.set("n", "<C-f>", function()
-      local current_buffer_path = vim.fn.expand('%:p')
-      if current_buffer_path ~= '' then
+      local current_buffer_path = vim.fn.expand("%:p")
+      if current_buffer_path ~= "" then
         builtin.current_buffer_fuzzy_find({
           sorting_strategy = "ascending",
           initial_mode = "insert",

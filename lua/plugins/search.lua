@@ -1,10 +1,10 @@
 return {
   "FabianWirth/search.nvim",
   dependencies = {
-    "nvim-telescope/telescope.nvim"
+    "nvim-telescope/telescope.nvim",
   },
   config = function()
-    local builtin = require('telescope.builtin')
+    local builtin = require("telescope.builtin")
     require("search").setup({
       initial_tab = 1,
       tabs = {
@@ -15,7 +15,7 @@ return {
       },
     })
     vim.keymap.set("n", "<C-p>", function()
-      require('search').open()
+      require("search").open()
     end)
-  end
+  end,
 }

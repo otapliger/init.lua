@@ -21,6 +21,7 @@ function StatusLine()
     get_component("StatusInfos", components.infos()),
     get_component("StatusErrors", components.errors()),
     get_component("StatusWarnings", components.warnings()),
+    get_component("StatusType", components.filetype()),
   })
 end
 

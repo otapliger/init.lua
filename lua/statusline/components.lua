@@ -49,6 +49,10 @@ M.filename = function()
   return file
 end
 
+M.filetype = function()
+  return "ft:" .. vim.bo.filetype
+end
+
 M.modified = function()
   return vim.bo.modified and "*" or ""
 end
@@ -84,7 +88,7 @@ M.changes = function()
     removed = statuses.removed or 0
   end
 
-  return "%#GitSignsChange# ~" .. changed .. " %#GitSignsAdd# +" .. added .. " %#GitSignsDelete# -" .. removed .. " "
+  return "%#GitSignsChange# ~" .. changed .. "%#GitSignsAdd# +" .. added .. "%#GitSignsDelete# -" .. removed .. " "
 end
 
 M.infos = function()

@@ -1,0 +1,66 @@
+return {
+  "neovim/nvim-lspconfig",
+  dependencies = {
+    "saghen/blink.cmp",
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+  },
+  config = function()
+    local mason = require("mason")
+    local mason_lspconfig = require("mason-lspconfig")
+    local mason_tool_installer = require("mason-tool-installer")
+    mason.setup({
+      ui = {
+        icons = {
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗",
+        },
+      },
+    })
+    mason_lspconfig.setup({
+      automatic_installation = true,
+      ensure_installed = {
+        "biome",
+        "lua_ls",
+        "yamlls",
+      },
+      handlers = {
+        function(server)
+          require("lspconfig")[server].setup({
+            on_attach = function(_, bufnr)
+              local opts = { buffer = bufnr, remap = false }
+              vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+              vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+              vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+              vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+            end,
+            capabilities = require("blink.cmp").get_lsp_capabilities(),
+          })
+        end,
+      },
+    })
+    mason_tool_installer.setup({
+      ensure_installed = {
+        "stylua",
+      },
+    })
+    vim.keymap.set("n", "gl", vim.diagnostic.open_float, {})
+    vim.diagnostic.config({
+      virtual_text = true,
+      float = {
+        header = "",
+        border = "single",
+      },
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = "•",
+          [vim.diagnostic.severity.WARN] = "•",
+          [vim.diagnostic.severity.INFO] = "•",
+          [vim.diagnostic.severity.HINT] = "•",
+        },
+      },
+    })
+  end,
+}

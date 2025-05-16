@@ -32,7 +32,8 @@ M.mode = function()
     ["ce"] = "EX",
   }
 
-  return modes[vim.api.nvim_get_mode().mode] or "UNKNOWN"
+  local mode = " " .. modes[vim.api.nvim_get_mode().mode]
+  return mode or "UNKNOWN"
 end
 
 M.filename = function()
@@ -50,6 +51,10 @@ M.filename = function()
 end
 
 M.filetype = function()
+  if vim.bo.filetype == nil or vim.bo.filetype == '' then
+    return ""
+  end
+
   return "ft:" .. vim.bo.filetype .. " "
 end
 
